@@ -29,5 +29,7 @@ int		ft_edit_format(t_print *flag, const char *format, int i);
 t_print	*ft_reset_flag(t_print *flag);
 int		ft_edit_variable(t_print *flag, const char *format, int i);
 void	ft_percentage(t_print *flag);
+int		ft_edit_width(t_print *flag, const char *format, int i);
+int		ft_edit_precision(t_print *flag, const char *format, int i);
 
 #endif
