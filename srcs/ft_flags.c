@@ -1,6 +1,23 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
+int	ft_edit_dash(t_print *flag, const char *format, int i)
+{
+	i++;
+	if (flag->dash == 1)
+	{
+		while (format[i] == '-' || format[i] == '0')
+			i++;
+		return (i);
+	}
+	flag->dash = 1;
+	flag->zero = 0;
+	while (format[i] == '-' || format[i] == '0')
+		i++;
+	i = ft_edit_width(flag, format, i);
+	return (i);
+}
+
 int	ft_edit_star(t_print *flag, const char *format, int i)
 {
 	i++;

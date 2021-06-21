@@ -14,6 +14,8 @@ int	ft_edit_format(t_print *flag, const char *format, int i)
 	{
 		if (ft_isdigit(format[i]))
 			i = ft_edit_width(flag, format, i);
+		if (format[i] == '-')
+			i = ft_edit_dash(flag, format, i);
 	}
 	ft_edit_variable(flag, format, i);
 	ft_reset_flag(flag);
