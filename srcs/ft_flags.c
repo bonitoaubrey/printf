@@ -1,6 +1,24 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
+int	ft_edit_zero(t_print *flag, const char *format, int i)
+{
+	int	num;
+
+	num = 0;
+	i++;
+	flag->zero = 1;
+	while (format[i] == '0')
+		i++;
+	if (ft_isdigit(format[i]))
+	{
+		num = ft_atoi(&format[i]);
+		i += ft_numlen(num);
+	}
+	flag->width = num;
+	return (i);
+}
+
 int	ft_edit_dash(t_print *flag, const char *format, int i)
 {
 	i++;

@@ -33,5 +33,6 @@ int		ft_edit_width(t_print *flag, const char *format, int i);
 int		ft_edit_precision(t_print *flag, const char *format, int i);
 int		ft_edit_star(t_print *flag, const char *format, int i);
 int		ft_edit_dash(t_print *flag, const char *format, int i);
+int		ft_edit_zero(t_print *flag, const char *format, int i);
 
 #endif
