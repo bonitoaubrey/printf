@@ -25,5 +25,9 @@ typedef struct s_print
 
 int		ft_printf(const char *format, ...);
 t_print	*ft_init_flag(t_print *flag);
+int		ft_edit_format(t_print *flag, const char *format, int i);
+t_print	*ft_reset_flag(t_print *flag);
+int		ft_edit_variable(t_print *flag, const char *format, int i);
+void	ft_percentage(t_print *flag);
 
 #endif

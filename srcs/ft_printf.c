@@ -46,7 +46,10 @@ int	ft_printf(const char *format, ...)
 	va_start(flag->args, format);
 	while (format[++i])
 	{
-		word_count += write(1, &format[i], 1);
+		if (format[i] == '%')
+			i = ft_edit_format(flag, format, i + 1);
+		else
+			word_count += write(1, &format[i], 1);
 	}
 	word_count += flag->lenght;
 	va_end(flag->args);
