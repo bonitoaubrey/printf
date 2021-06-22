@@ -14,6 +14,7 @@ SRCS_FILES = \
 	./srcs/ft_print_char.c \
 	./srcs/ft_flags.c \
 	./srcs/ft_print_hexa.c \
+	./srcs/ft_print_str.c \
 
 SRCS_OBJS = ${SRCS_FILES:.c=.o}
 

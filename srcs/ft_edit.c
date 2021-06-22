@@ -11,6 +11,8 @@ int	ft_edit_variable (t_print *flag, const char *format, int i)
 		ft_print_hexa(flag, format[i] - 23);
 	else if (format[i] == 'c')
 		ft_print_char(flag);
+	else if (format[i] == 's')
+		ft_print_str(flag);
 	return (i);
 }
 

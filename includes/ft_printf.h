@@ -37,5 +37,6 @@ int		ft_edit_zero(t_print *flag, const char *format, int i);
 void	ft_print_pointer(t_print *flag);
 void	ft_print_hexa(t_print *flag, int c);
 void	ft_print_char(t_print *flag);
+void	ft_print_str(t_print *flag);
 
 #endif
