@@ -7,6 +7,8 @@ int	ft_edit_variable (t_print *flag, const char *format, int i)
 		ft_percentage(flag);
 	else if (format[i] == 'p')
 		ft_print_pointer(flag);
+	else if (format[i] == 'x' || format[i] == 'X')
+		ft_print_hexa(flag, format[i] - 23);
 	return (i);
 }
 
