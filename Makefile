@@ -16,6 +16,7 @@ SRCS_FILES = \
 	./srcs/ft_print_hexa.c \
 	./srcs/ft_print_str.c \
 	./srcs/ft_align.c \
+	./srcs/ft_print_int.c \
 
 SRCS_OBJS = ${SRCS_FILES:.c=.o}
 

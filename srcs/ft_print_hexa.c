@@ -32,3 +32,10 @@ void	ft_print_pointer(t_print *flag)
 	if (!(!add && flag->dot))
 		flag->lenght += ft_putnbr_base(add, "0123456789abcdef");
 }
+
+int	ft_check_sign(t_print *flag, int j)
+{
+	flag->sign = 1;
+	flag->space = 0;
+	return (j * -1);
+}

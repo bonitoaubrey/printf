@@ -13,6 +13,10 @@ int	ft_edit_variable (t_print *flag, const char *format, int i)
 		ft_print_char(flag);
 	else if (format[i] == 's')
 		ft_print_str(flag);
+	else if (format[i] == 'd' || format[i] == 'i')
+		ft_print_int(flag);
+	else if (format[i] == 'u')
+		ft_print_unsigned_int(flag);
 	return (i);
 }
 

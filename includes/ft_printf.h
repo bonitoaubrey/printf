@@ -42,5 +42,14 @@ int		ft_edit_space(t_print *flag, int i);
 void	ft_right_cs(t_print *flag, int len);
 int		ft_update_len(char *s, t_print *flag, int len);
 void	ft_write_point(t_print *flag);
+void	ft_print_int(t_print *flag);
+void	ft_write_zero(t_print *flag);
+void	ft_right_zero(t_print *flag);
+void	ft_update_flag(t_print *flag, int len);
+void	ft_right_id(t_print *flag);
+void	ft_left_id(t_print *flag);
+int		ft_check_sign(t_print *flag, int j);
+void	ft_write_zero_point(t_print *flag);
+void	ft_print_unsigned_int(t_print *flag);
 
 #endif
