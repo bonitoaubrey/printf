@@ -12,6 +12,4 @@ void	ft_print_char(t_print *flag)
 void	ft_percentage(t_print *flag)
 {
 	flag->lenght += write(1, "%", 1);
-	while (flag->dash && --flag->width > 0)
-		flag->lenght += write(1, " ", 1);
 }

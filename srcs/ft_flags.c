@@ -1,6 +1,13 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
+int	ft_edit_space(t_print *flag, int i)
+{
+	i++;
+	flag->space = 1;
+	return (i);
+}
+
 int	ft_edit_zero(t_print *flag, const char *format, int i)
 {
 	int	num;
@@ -76,7 +83,7 @@ int	ft_edit_precision(t_print *flag, const char *format, int i)
 		num = ft_atoi(&format[i]);
 		i += ft_numlen(num);
 	}
-	flag->precision = i;
+	flag->precision = num;
 	if (format[i] == '*')
 		i = ft_edit_star(flag, format, i);
 	while (format[i] == '*')
@@ -94,7 +101,7 @@ int	ft_edit_width(t_print *flag, const char *format, int i)
 		num = ft_atoi(&format[i]);
 		i += ft_numlen(num);
 	}
-	flag->width = 1;
+	flag->width = num;
 	if (format[i] == '.')
 		i = ft_edit_precision(flag, format, i);
 	return (i);

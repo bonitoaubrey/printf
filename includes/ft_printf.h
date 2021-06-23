@@ -38,5 +38,6 @@ void	ft_print_pointer(t_print *flag);
 void	ft_print_hexa(t_print *flag, int c);
 void	ft_print_char(t_print *flag);
 void	ft_print_str(t_print *flag);
+int		ft_edit_space(t_print *flag, int i);
 
 #endif
