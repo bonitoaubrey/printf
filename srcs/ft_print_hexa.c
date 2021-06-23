@@ -8,13 +8,21 @@ void	ft_print_hexa(t_print *flag, int c)
 	char			*num;
 
 	j = va_arg(flag->args, unsigned int);
+	if (!j)
+	{
+		ft_write_zero(flag);
+		return ;
+	}
 	len = ft_numlen_base(j, 16);
 	num = malloc(len + 1);
 	if (!num)
 		return ;
 	num = ft_itoa_base(num, j, 16, c);
+	ft_update_flag(flag, len);
+	ft_right_id(flag);
 	while (num && len-- > 0)
 		flag->lenght += write(1, &num[len], 1);
+	ft_left_id(flag);
 	free (num);
 }
 
