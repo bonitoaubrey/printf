@@ -39,5 +39,8 @@ void	ft_print_hexa(t_print *flag, int c);
 void	ft_print_char(t_print *flag);
 void	ft_print_str(t_print *flag);
 int		ft_edit_space(t_print *flag, int i);
+void	ft_right_cs(t_print *flag, int len);
+int		ft_update_len(char *s, t_print *flag, int len);
+void	ft_write_point(t_print *flag);
 
 #endif

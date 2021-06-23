@@ -1,13 +1,6 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-int	ft_edit_space(t_print *flag, int i)
-{
-	i++;
-	flag->space = 1;
-	return (i);
-}
-
 int	ft_edit_zero(t_print *flag, const char *format, int i)
 {
 	int	num;

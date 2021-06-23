@@ -1,6 +1,23 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
+void	ft_write_point(t_print *flag)
+{
+	ft_update_len(NULL, flag, 0);
+	flag->precision = 0;
+	while (flag->width--)
+		flag->lenght += write(1, " ", 1);
+}
+
+int	ft_update_len(char *s, t_print *flag, int len)
+{
+	if (s)
+		len = ft_strlen(s);
+	if (flag->precision > 0 && flag->precision < len)
+		len = flag->precision;
+	return (len);
+}
+
 void	ft_print_str(t_print *flag)
 {
 	char	*s;
@@ -12,17 +29,17 @@ void	ft_print_str(t_print *flag)
 	s = va_arg(flag->args, char *);
 	if (!s)
 		s = "(null)";
-	len = ft_strlen(s);
-	if (flag->dot == 1)
-		len = flag->precision;
-	while (flag->width-- > len && flag->dash == 0)
-		flag->lenght += write(1, " ", 1);
+	if (s && flag->dot == 1 && flag->precision == 0)
+		return (ft_write_point(flag));
+	len = ft_update_len(s, flag, len);
+	while (flag->width > len && flag->dash == 0)
+		ft_right_cs(flag, len);
 	if (flag->dot == 1)
 		while (s[i] && flag->precision--)
 			flag->lenght += write(1, &s[i++], 1);
 	else
 		while (s[i])
 			flag->lenght += write(1, &s[i++], 1);
-	while (flag->dash == 1 && flag->width-- + 1 > len)
+	while (flag->dash == 1 && flag->width-- > len)
 		flag->lenght += write(1, " ", 1);
 }
