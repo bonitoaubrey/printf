@@ -28,6 +28,7 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_putchar(char c);
 int		ft_atoi(const char *nptr);
+char	*ft_strdup(const char *s1);
 char	*ft_uitoa(unsigned int nb);
 void	ft_putnbr(int nbr);
 char	*ft_itoa(int n);
