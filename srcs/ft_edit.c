@@ -32,6 +32,10 @@ int	ft_edit_format(t_print *flag, const char *format, int i)
 			i = ft_edit_zero(flag, format, i);
 		if (format[i] == '.')
 			i = ft_edit_precision(flag, format, i);
+		if (format[i] == '*')
+			i = ft_edit_star(flag, format, i);
+		if (format[i] == ' ')
+			i = ft_edit_space(flag, i);
 	}
 	ft_edit_variable(flag, format, i);
 	ft_reset_flag(flag);

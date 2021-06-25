@@ -51,5 +51,6 @@ void	ft_left_id(t_print *flag);
 int		ft_check_sign(t_print *flag, int j);
 void	ft_write_zero_point(t_print *flag);
 void	ft_print_unsigned_int(t_print *flag);
+void	ft_write_null_add(t_print *flag);
 
 #endif
