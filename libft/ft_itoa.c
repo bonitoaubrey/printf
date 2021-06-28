@@ -1,49 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlazzare <mlazzare@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/23 14:07:35 by mlazzare          #+#    #+#             */
+/*   Updated: 2021/04/09 16:54:39 by mlazzare         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	numlen(int i)
+static int	n_len(long n)
 {
-	int	len;
+	int	count;
 
-	len = 0;
-	if (i == 0)
-		return (1);
-	if (i < 0)
+	count = 0;
+	if (n <= 0)
 	{
-		i *= -1;
-		len++;
+		if (n != INT_MIN)
+			count += 1;
+		n *= -1;
 	}
-	while (i)
+	while (n > 0)
 	{
-		i /= 10;
-		len++;
+		count++;
+		n /= 10;
 	}
-	return (len);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*num;
-	int		i;
+	char		*a;
+	int			l;
+	long long	nb;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	i = numlen(n);
-	num = malloc(i + 1);
-	if (!num)
+	nb = n;
+	l = n_len(nb);
+	a = (char *)malloc(sizeof(char) * (l + 1));
+	if (!a)
 		return (NULL);
-	num[i--] = '\0';
-	if (n == 0)
-		num[0] = '0';
-	if (n < 0)
+	a[l--] = '\0';
+	if (nb < 0)
 	{
-		num[0] = '-';
-		n *= -1;
+		nb *= -1;
+		if (nb != INT_MIN)
+			a[0] = '-';
 	}
-	while (n)
+	if (nb == 0)
+		a[l] = 0 + '0';
+	while (nb > 0)
 	{
-		num[i] = n % 10 + '0';
-		n /= 10;
-		i--;
+		a[l--] = nb % 10 + '0';
+		nb /= 10;
 	}
-	return (num);
+	return (a);
 }
