@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mlazzare <mlazzare@student.s19.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/11 10:46:12 by mlazzare          #+#    #+#             */
-/*   Updated: 2021/04/09 16:49:08 by mlazzare         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -17,8 +5,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
-
-# define MAX_LONG	9223372036854775807
 
 size_t	ft_strlen(const char *s);
 int		ft_numlen(long n);

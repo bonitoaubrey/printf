@@ -8,15 +8,15 @@ LIBFT_LIB = libft.a
 
 HEADERS_FOLDER = includes/
 
-SRCS_FILES = \
-	./srcs/ft_printf.c \
-	./srcs/ft_edit.c \
-	./srcs/ft_print_char.c \
-	./srcs/ft_flags.c \
-	./srcs/ft_print_hexa.c \
-	./srcs/ft_print_str.c \
-	./srcs/ft_align.c \
-	./srcs/ft_print_int.c \
+SRCS_FILES = 				\
+	./srcs/ft_printf.c		\
+	./srcs/ft_edit.c 		\
+	./srcs/ft_print_char.c	\
+	./srcs/ft_flags.c 		\
+	./srcs/ft_print_hexa.c	\
+	./srcs/ft_print_str.c	\
+	./srcs/ft_align.c		\
+	./srcs/ft_print_int.c	\
 
 SRCS_OBJS = ${SRCS_FILES:.c=.o}
 
@@ -48,5 +48,3 @@ fclean: 	clean
 			${RM} ${NAME} ${LIBFT_PATH}${LIBFT_LIB}
 
 re:         fclean all
-
-.PHONY:        all clean fclean re
