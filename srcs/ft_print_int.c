@@ -1,6 +1,14 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
+void	ft_write_zero_point(t_print *flag)
+{
+	if (flag->precision < 0)
+		flag->lenght += write(1, "0", 1);
+	while (!flag->width && flag->precision-- > 0)
+		flag->lenght += write(1, "0", 1);
+}
+
 void	ft_update_flag(t_print *flag, int len)
 {
 	if (flag->sign)
@@ -24,14 +32,6 @@ void	ft_update_flag(t_print *flag, int len)
 	}
 }
 
-void	ft_write_zero_point(t_print *flag)
-{
-	if (flag->precision < 0)
-		flag->lenght += write(1, "0", 1);
-	while (!flag->width && flag->precision-- > 0)
-		flag->lenght += write(1, "0", 1);
-}
-
 void	ft_write_zero(t_print *flag)
 {
 	flag->is_zero = 1;
@@ -49,10 +49,10 @@ void	ft_write_zero(t_print *flag)
 
 void	ft_print_int(t_print *flag)
 {
-	int		len;
+	char	*num;
 	int		i;
 	int		j;
-	char	*num;
+	int		len;
 
 	i = 0;
 	j = va_arg(flag->args, int);
@@ -72,7 +72,7 @@ void	ft_print_int(t_print *flag)
 	while (j && num[i])
 		flag->lenght += write(1, &num[i++], 1);
 	ft_left_id(flag);
-	free(num);
+	free (num);
 }
 
 void	ft_print_unsigned_int(t_print *flag)

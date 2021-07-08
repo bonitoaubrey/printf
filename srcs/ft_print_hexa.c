@@ -3,14 +3,14 @@
 
 void	ft_write_null_add(t_print *flag)
 {
-	if (flag->width > flag->precision)
+	if (!flag->dash && flag->width > flag->precision)
 	{
-		while (flag->width-- > (flag->precision + 2))
+		while (flag->width-- > (flag->precision + 5))
 			flag->lenght += write(1, " ", 1);
 	}
-	flag->lenght += write(1, "0x", 2);
-	while (flag->precision-- > 0)
-		flag->lenght += write(1, "0", 1);
+	flag->lenght += write(1, "(nil)", 5);
+	while (flag->width-- > (flag->precision + 5))
+		flag->lenght += write(1, " ", 1);;
 }
 
 void	ft_print_hexa(t_print *flag, int c)
@@ -45,7 +45,7 @@ void	ft_print_pointer(t_print *flag)
 
 	len = 2;
 	add = (unsigned long)va_arg(flag->args, void *);
-	if (!add && flag->dot && flag->precision > 0)
+	if (!add)
 	{
 		ft_write_null_add(flag);
 		return ;
@@ -65,11 +65,4 @@ void	ft_print_pointer(t_print *flag)
 	if (!(!add && flag->dot))
 		flag->lenght += ft_putnbr_base(add, "0123456789abcdef");
 	ft_left_id(flag);
-}
-
-int	ft_check_sign(t_print *flag, int j)
-{
-	flag->sign = 1;
-	flag->space = 0;
-	return (j * -1);
 }

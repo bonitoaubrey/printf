@@ -1,10 +1,10 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-int	ft_edit_variable (t_print *flag, const char *format, int i)
+int ft_edit_variable(t_print *flag, const char *format, int i)
 {
 	if (format[i] == '%')
-		ft_percentage(flag);
+		ft_precentage(flag);
 	else if (format[i] == 'p')
 		ft_print_pointer(flag);
 	else if (format[i] == 'x' || format[i] == 'X')
@@ -20,20 +20,20 @@ int	ft_edit_variable (t_print *flag, const char *format, int i)
 	return (i);
 }
 
-int	ft_edit_format(t_print *flag, const char *format, int i)
+int	ft_format(t_print *flag, const char *format, int i)
 {
 	while (!(ft_isalpha(format[i]) || format[i] == '%'))
 	{
 		if (ft_isdigit(format[i]))
 			i = ft_edit_width(flag, format, i);
 		if (format[i] == '-')
-			i = ft_edit_dash(flag, format, i);
+			i = ft_edit_dash(flag, i);
 		if (format[i] == '0')
 			i = ft_edit_zero(flag, format, i);
 		if (format[i] == '.')
-			i = ft_edit_precision(flag, format, i);
+			i = ft_edit_dot(flag, format, i);
 		if (format[i] == '*')
-			i = ft_edit_star(flag, format, i);
+			i = ft_edit_star(flag, i);
 		if (format[i] == ' ')
 			i = ft_edit_space(flag, i);
 	}
