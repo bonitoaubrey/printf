@@ -12,11 +12,9 @@ SRCS_FILES = 				\
 	./srcs/ft_printf.c		\
 	./srcs/ft_format.c		\
 	./srcs/ft_print_char.c	\
-	./srcs/ft_edit_flag.c	\
 	./srcs/ft_print_hexa.c	\
-	./srcs/ft_print_str.c	\
 	./srcs/ft_print_int.c	\
-	./srcs/ft_align.c		\
+	./srcs/ft_print_str.c	\
 
 SRCS_OBJS = ${SRCS_FILES:.c=.o}
 

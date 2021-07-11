@@ -1,32 +1,5 @@
 #include "../includes/ft_printf.h"
 
-t_print *ft_init_flag(t_print *flag)
-{
-	flag->lenght = 0;
-	flag->width = 0;
-	flag->dash = 0;
-	flag->zero = 0;
-	flag->dot = 0;
-	flag->precision = 0;
-	flag->is_zero = 0;
-	flag->sign = 0;
-	flag->space = 0;
-	return (flag);
-}
-
-t_print	*ft_reset_flag(t_print *flag)
-{
-	flag->width = 0;
-	flag->dash = 0;
-	flag->zero = 0;
-	flag->dot = 0;
-	flag->precision = 0;
-	flag->is_zero = 0;
-	flag->sign = 0;
-	flag->space = 0;
-	return (flag);
-}
-
 int	ft_printf(const char *format, ...)
 {
 	int		word_count;
@@ -39,7 +12,7 @@ int	ft_printf(const char *format, ...)
 	flag = malloc(sizeof(t_print));
 	if (!flag)
 		return (-1);
-	ft_init_flag(flag);
+	flag->lenght = 0;
 	i = -1;
 	va_start(flag->args, format);
 	while (format[++i])
@@ -52,5 +25,5 @@ int	ft_printf(const char *format, ...)
 	word_count += flag->lenght;
 	va_end(flag->args);
 	free(flag);
-	return (0);
+	return (word_count);
 }
